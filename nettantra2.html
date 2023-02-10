@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calories Calculator</title>
+	<style>
+		.table,tr,th,td
+		{
+			border: 1px solid black;
+ 			border-collapse: collapse;
+            padding: 0 11px;
+		}
+		.header {
+			padding: 10px;
+			text-align: center;
+			background: #e3e3e3c2;
+			color: #040404;
+			display: flex;
+			flex-direction: row;
+			align-content: stretch;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: nowrap;
+		}
+		.myheader{
+		    padding: 0px 15px;
+		    margin-bottom: 20px;
+			text-align: center;
+			background: #e3e3e3c2;
+			color: #040404;
+			display: flex;
+			flex-direction: row;
+			align-content: stretch;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: nowrap;
+		}
+		.content {
+		    padding-top: 20px;
+		}
+		.form-inline {
+		    flex-flow: row wrap;
+		    align-items: center;
+		    flex-direction: row;
+		    flex-wrap: wrap;
+		    align-content: space-around;
+		    justify-content: center;
+		}
+
+		/* Add some margins for each label */
+		.form-inline label {
+		  margin: 5px 10px 5px 0;
+		}
+
+		/* Style the input fields */
+		.form-inline input {
+		  vertical-align: middle;
+		  margin: 5px 10px 5px 0;
+		  padding: 10px;
+		  background-color: #fff;
+		  border: 1px solid #ddd;
+		}
+
+		/* Style the submit button */
+		.form-inline button {
+		  padding: 10px 20px;
+		  background-color: dodgerblue;
+		  border: 1px solid #ddd;
+		  color: white;
+		}
+
+		.form-inline button:hover {
+		  background-color: royalblue;
+		}
+		div#myIntake {
+		    border: solid 1px;
+		    padding: 10px;
+		    margin: 10px;
+		    border-radius: 3px;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+  		<div class="left"><h3>Calories Calculator</h3></div>
+  		<div class="right">
+  			<button class="btn" onclick="show('myIntake')"> Create Calories Intake</button></div>
+  	</div>
+	        <div id="myIntake" style="display:none">
+
+    	
+		<div class="myheader">
+			<div class="left"><h4>Calories Intake</h4></div>
+ 
+    	<div class="right">
+	  			<button class="btn" onclick="hide('myIntake')">Close</button></div>
+	  		</div>
+
+	<!-- <form > -->
+			       <div class="inline-flex">
+					<label for="name">Name:</label><br>
+				  	<input type="text" name="name" placeholder=" " id="name"></div>
+				
+				<div class="inline-flex">
+				  <label for="age">Age:</label><br>
+				  <input type="number" id="age">
+				</div>
+				<div class="inline-flex ">
+				  <label for="date">Date:</label><br>
+				  <input type="date" name="date" id="date" placeholder="">
+				</div>
+				<div class="inline-flex">
+				  <label for="age">Food:</label><br>
+				  <input type="radio" name="Food" ><label>Rice</label>
+				  <input type="radio" name="Food"><label>Roti</label>
+				  <input type="radio" name="Food"><label>Apple</label>
+				  <input type="radio" name="Food"><label>Orange</label>
+				</div>
+
+				<div class="inline-flex">
+				  <label for="burned">Total calorie intake:</label><br>
+				  <input type="number" id="intake" name="intake">
+				</div>
+
+				<div class="inline-flex">
+				  <label for="age">Burn:</label><br>
+				  <input type="radio" name='burn' value="Running" id="Running"><label>Running</label>
+				  <input type="radio" name='burn' value="Walking" id="Walking"><label>Walking</label>
+				</div>
+				<div class="inline-flex">
+				  <label for="burned">Total calorie To Burned:</label><br>
+				  <input type="number" id="burned" name="calorie" id="cal">
+				</div>
+				<button class="btn" onclick="submitBurn()">submit</button>
+		<!-- </form> -->
+ </div>
+	<div class="content">
+		
+	 <table  class="table" id="mytable">
+	 	<thead>
+	 		<tr>
+	 		<th>DATE</th>
+	 		<th>NAME</th>
+	 		<th>TOTAL CAL</th>
+	 		<th>TARGETED CAL INTAKE</th>
+	 		<th>ACHIVED CAL INTAKE</th>
+	 		<th>TOTAL CAL BURNED</th>
+	 		<th>TARGET CAL BURNED</th>
+	        <th>ACHIVED CAL BURNED</th>
+	        <th>ACTION</th>
+	 		</tr>
+	 	</thead>
+	     <tbody>
+	     	
+	     	
+	     </tbody>
+	 </table>
+	</div>
+
+<script type="text/javascript">
+	function show(i){
+		document.getElementById(i).style.display='block';
+	}
+
+	function hide(i){
+		document.getElementById(i).style.display='none';
+	}
+	function submitBurn(){
+		console.log("shbj");
+		var table = document.getElementById("mytable");
+		var row = table.insertRow(-1);
+		var date = row.insertCell(0);
+		var name = row.insertCell(1);
+		var totalcal = row.insertCell(2);
+		var calintake = row.insertCell(3);
+		var acheivecal = row.insertCell(4);
+		var totalcalburn = row.insertCell(5);
+		var calburn = row.insertCell(6);
+		var acheiveburn = row.insertCell(7);
+		var amt = row.insertCell(8);
+		date.innerHTML = document.getElementById("date").value;
+		name.innerHTML = document.getElementById("name").value;
+		var totalvalue = document.getElementById("intake").value;
+		var calintakevalue =  document.getElementById("intake").value;
+		totalcal.innerHTML = totalvalue;
+		calintake.innerHTML = calintakevalue;
+		var isachieve = "false";
+		if(totalvalue == calintakevalue){
+			isachieve = "true";
+		}
+		acheivecal.innerHTML = isachieve;
+
+		var totalcalburnvalue = document.getElementById("burned").value;
+		var burnedvalue = document.getElementById("burned").value;
+		totalcalburn.innerHTML = totalcalburnvalue;
+		calburn.innerHTML = burnedvalue;
+		var isachieveburnt = "false";
+		if(totalcalburnvalue == burnedvalue){
+			isachieveburnt = "true";
+		}
+		acheiveburn.innerHTML = isachieveburnt;
+		return false;
+	}
+	
+</script>
+</body>
+</html>

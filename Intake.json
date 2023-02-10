@@ -1,0 +1,30 @@
+[
+    {
+        "Id": 1,
+        "Food":"Rice",
+        "Calories":50,
+        "Quantity":1
+
+    },
+    {
+        "Id": 2,
+        "Food":"Rice",
+        "Calories":80,
+        "Quantity":1
+
+    },
+    {
+        "Id": 3,
+        "Food":"Apple",
+        "Calories":100,
+        "Quantity":1
+
+    },
+    {
+        "Id": 4,
+        "Food":"Orange",
+        "Calories":120,
+        "Quantity":1
+
+    }
+]
